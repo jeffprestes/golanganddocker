@@ -1,9 +1,9 @@
-#env GOOS=linux GOARCH=amd64 go build
-#docker build -t mercurius:simple .
-#docker run -p 8080:8080 -d mercurius:simple
+#env GOOS=linux GOARCH=amd64 go build -o ./main ./...
+#docker build -t mercurius:golanganddocker .
+#docker run mercurius:golanganddocker
 
 FROM scratch
 
-ADD golanganddocker /
+ADD main/server /
 
-CMD [ "/golanganddocker" ]
+CMD [ "/server" ]
